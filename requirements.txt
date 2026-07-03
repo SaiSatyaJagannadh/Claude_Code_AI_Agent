@@ -1,0 +1,15 @@
+langchain
+python-dotenv
+langchain-google-genai
+langchain_openai
+gradio
+google-genai
+pillow
+openai
+sounddevice
+soundfile
+langchain
+langchain-google-genai
+langchain-openai
+rich
+python-dotenv

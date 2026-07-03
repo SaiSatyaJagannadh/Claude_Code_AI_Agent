@@ -1,2 +1,2 @@
 # Claude_Code_AI_Agent
-king
+pip install -r requirements.txt
