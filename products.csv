@@ -1,11 +1,11 @@
-product_id,product_name,category,brand,price,stock_quantity,rating,description
-P001,Wireless Bluetooth Headphones,Electronics,SoundMax,79.99,150,4.5,Over-ear noise cancelling headphones with 30hr battery life
-P002,Stainless Steel Water Bottle,Kitchen,HydroFlow,24.99,300,4.7,32oz insulated bottle keeps drinks cold 24hrs and hot 12hrs
-P003,Yoga Mat,Sports & Fitness,ZenFlex,35.00,200,4.6,Non-slip 6mm thick eco-friendly TPE yoga mat
-P004,Laptop Stand,Office Supplies,ErgoDesk,45.00,180,4.4,Adjustable aluminum laptop stand with 6 height settings
-P005,Scented Soy Candle,Home Decor,CalmWicks,18.50,500,4.8,Hand-poured lavender vanilla soy candle 50hr burn time
-P006,Running Shoes,Footwear,SwiftStep,89.95,120,4.3,Lightweight breathable mesh running shoes with cushioned sole
-P007,USB-C Charging Hub,Electronics,TechLink,39.99,250,4.2,7-in-1 USB-C hub with HDMI 4K PD charging and SD card slots
-P008,Resistance Band Set,Sports & Fitness,FlexBand,22.00,400,4.5,Set of 5 latex resistance bands with carrying bag
-P009,Bamboo Cutting Board,Kitchen,EcoKitchen,32.00,175,4.6,Extra large organic bamboo cutting board with juice grooves
-P010,Desk Organizer,Office Supplies,NeatSpace,27.50,220,4.1,Mesh metal desk organizer with 6 compartments and pen holder
+product_id,product_name,category,brand,price,stock_quantity,rating,description,product_stock_date
+P001,Wireless Bluetooth Headphones,Electronics,SoundMax,79.99,150,4.5,Over-ear noise cancelling headphones with 30hr battery life,2026-07-04
+P002,Stainless Steel Water Bottle,Kitchen,HydroFlow,24.99,300,4.7,32oz insulated bottle keeps drinks cold 24hrs and hot 12hrs,2026-07-04
+P003,Yoga Mat,Sports & Fitness,ZenFlex,35.00,200,4.6,Non-slip 6mm thick eco-friendly TPE yoga mat,2026-07-04
+P004,Laptop Stand,Office Supplies,ErgoDesk,45.00,180,4.4,Adjustable aluminum laptop stand with 6 height settings,2026-07-04
+P005,Scented Soy Candle,Home Decor,CalmWicks,18.50,500,4.8,Hand-poured lavender vanilla soy candle 50hr burn time,2026-07-04
+P006,Running Shoes,Footwear,SwiftStep,89.95,120,4.3,Lightweight breathable mesh running shoes with cushioned sole,2026-07-04
+P007,USB-C Charging Hub,Electronics,TechLink,39.99,250,4.2,7-in-1 USB-C hub with HDMI 4K PD charging and SD card slots,2026-07-04
+P008,Resistance Band Set,Sports & Fitness,FlexBand,22.00,400,4.5,Set of 5 latex resistance bands with carrying bag,2026-07-04
+P009,Bamboo Cutting Board,Kitchen,EcoKitchen,32.00,175,4.6,Extra large organic bamboo cutting board with juice grooves,2026-07-04
+P010,Desk Organizer,Office Supplies,NeatSpace,27.50,220,4.1,Mesh metal desk organizer with 6 compartments and pen holder,2026-07-04
