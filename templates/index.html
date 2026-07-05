@@ -3,10 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello, Flask!</title>
+    <title>AI Agent App</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      .container { max-width: 800px; margin: 0 auto; }
+      textarea { width: 100%; height: 100px; margin-bottom: 10px; padding: 10px; }
+      input[type="submit"] { background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+      input[type="submit"]:hover { background-color: #0056b3; }
+      .result { background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 20px; }
+      .result h3 { margin-top: 0; }
+    </style>
   </head>
   <body>
-    <h1>Hello, World!</h1>
-    <p>This is a minimal Flask app rendering a template.</p>
+    <div class="container">
+      <h1>AI Agent App</h1>
+      <p>Enter your request below and the AI agent will help you with file operations, directory listing, etc.</p>
+      <form method="POST">
+        <textarea name="user_input" placeholder="e.g., 'List files in current directory' or 'Create a file hello.txt with content Hello World'">{{ user_input }}</textarea><br>
+        <input type="submit" value="Send to Agent">
+      </form>
+      {% if result %}
+      <div class="result">
+        <h3>Agent Response:</h3>
+        <p>{{ result }}</p>
+      </div>
+      {% endif %}
+    </div>
   </body>
 </html>

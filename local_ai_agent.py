@@ -45,7 +45,7 @@ def list_directory(path: str=".") -> str:
 def write_file(filepath: str, content: str) ->str:
     """Write content to a file. Creates new data.csv file or overwrites existing file."""
     try:
-        with open(filepath, 'w')as file:
+        with open(filepath, 'w') as file:
             file.write(content)
         return f"File {filepath} created successfully"
     except Exception as e:
@@ -70,7 +70,7 @@ def create_directory(path: str) ->str:
 
 system_prompt = """
 You are a helpful coding assistant that can help users navigate, read and edit files.
-    
+
 You have access to four tools:
 - list_directory: Show files and folders in a directory
 - read_file: Read the contents of a file
@@ -85,28 +85,50 @@ agent = create_agent(
     tools=[list_directory, write_file, read_file, create_directory]
 )
 
-user_input = "Create me a hello world flask app in the current directory"
-messages = [{"role":"user", "content":user_input}]
+def run_agent(user_input: str) -> str:
+    """Run the agent with the given user input and return the AI's response."""
+    messages = [{"role":"user", "content":user_input}]
+    chunks = agent.stream({"messages": messages}, stream_mode='updates')
+    ai_message = ""
+    for chunk in chunks:
+        for step, data in chunk.items():
+            if step == 'model':
+                msg = data['messages'][-1]
+                if msg.tool_calls:
+                    tool = msg.tool_calls[0]['name']
+                    message = f"[bold yellow]🔧 Using tool: [/bold yellow][cyan]{tool}[/cyan]"
+                    console.print(message)
+                else:
+                    ai_message = msg.content
+            elif step == 'tools':
+                result = data['messages'][-1].content
+                result = result if len(result) < 50 else result[:50] + "..."
+                console.print(f"🗒[bold green] Tool result:[/bold green]\n [dim]{result}[/dim]")
+    return ai_message
 
-chunks = agent.stream({"messages": messages}, stream_mode='updates')
-for chunk in chunks:
-    for step, data in chunk.items():
-        if step == 'model':
-            msg = data['messages'][-1]
-            if msg.tool_calls:
-                tool = msg.tool_calls[0]['name']
-                message = f"[bold yellow]🔧 Using tool: [/bold yellow][cyan]{tool}[/cyan]"
-                console.print(message)
-            else:
-                ai_message = msg.content
-        elif step == 'tools':
-            result = data['messages'][-1].content
-            result = result if len(result) < 50 else result[:50] + "..."
-            console.print(f"🗒[bold green] Tool result:[/bold green]\n [dim]{result}[/dim]")
+if __name__ == "__main__":
+    user_input = "Create me a hello world flask app in the current directory"
+    messages = [{"role":"user", "content":user_input}]
 
-markdown_output = Markdown(ai_message)
-panel_output = Panel(markdown_output,
-                     title="[bold cyan]Assistant Response[/bold cyan]",
-                     border_style="blue",
-                     padding=(1,2))
-console.print(panel_output)
+    chunks = agent.stream({"messages": messages}, stream_mode='updates')
+    for chunk in chunks:
+        for step, data in chunk.items():
+            if step == 'model':
+                msg = data['messages'][-1]
+                if msg.tool_calls:
+                    tool = msg.tool_calls[0]['name']
+                    message = f"[bold yellow]🔧 Using tool: [/bold yellow][cyan]{tool}[/cyan]"
+                    console.print(message)
+                else:
+                    ai_message = msg.content
+            elif step == 'tools':
+                result = data['messages'][-1].content
+                result = result if len(result) < 50 else result[:50] + "..."
+                console.print(f"🗒[bold green] Tool result:[/bold green]\n [dim]{result}[/dim]")
+
+    markdown_output = Markdown(ai_message)
+    panel_output = Panel(markdown_output,
+                         title="[bold cyan]Assistant Response[/bold cyan]",
+                         border_style="blue",
+                         padding=(1,2))
+    console.print(panel_output)
