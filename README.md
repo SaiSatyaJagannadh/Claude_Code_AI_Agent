@@ -1,6 +1,21 @@
-# Claude_Code_AI_Agent
-pip install -r requirements.txt
+# Hello Flask App
 
-https://github.com/Alishahryar1/free-claude-code
+Minimal "Hello, World!" Flask application.
 
-https://www.google.com/search?q=nvidia+api+usage&rlz=1C5CHFA_enUS1088US1088&oq=nvidia+api+u&gs_lcrp=EgZjaHJvbWUqBwgCEAAYgAQyBggAEEUYOTIHCAEQABiABDIHCAIQABiABDIICAMQABgWGB4yCAgEEAAYFhgeMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEINTI1MmowajSoAgGwAgHxBThMKoPBRjoe&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:dc24fd5b,vid:xgqSFJQB_yk,st:0
+Setup and run:
+
+1. Create a virtual environment (optional but recommended):
+
+   python -m venv venv
+   source venv/bin/activate   # macOS / Linux
+   venv\Scripts\activate    # Windows (PowerShell)
+
+2. Install dependencies:
+
+   pip install -r requirements.txt
+
+3. Run the app:
+
+   python app.py
+
+Then open http://127.0.0.1:5000/ in your browser.
